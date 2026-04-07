@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ===== CATEGORIAS =====
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  imageUrl    String?
+  isActive    Boolean   @default(true)
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+
+  @@map("categories")
+}
+
+// ===== PRODUTOS =====
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  price       Float
+  imageUrl    String
+  images      String?  // JSON array de URLs
+  isActive    Boolean  @default(true)
+  isFeatured  Boolean  @default(false)
+  stock       Int      @default(0)
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  sizes       Size[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("products")
+}
+
+// ===== TAMANHOS =====
+model Size {
+  id        String    @id @default(cuid())
+  name      String    // Ex: "20x30", "30x40", "40x60"
+  width     Int       // Largura em cm
+  height    Int       // Altura em cm
+  price     Float     // Preço adicional para este tamanho
+  isActive  Boolean   @default(true)
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("sizes")
+}
+
+// ===== LEADS (contatos via WhatsApp) =====
+model Lead {
+  id        String   @id @default(cuid())
+  name      String?
+  phone     String
+  message   String?
+  productId String?
+  source    String?  // Ex: "hero", "product", "footer"
+  createdAt DateTime @default(now())
+
+  @@map("leads")
+}
+
+// ===== CONFIGURAÇÕES DO SITE =====
+model SiteConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("site_config")
+}
