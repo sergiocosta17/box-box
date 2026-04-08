@@ -10,7 +10,7 @@ export default function CatalogoPage() {
     <main className="min-h-screen bg-carbon overflow-hidden relative">
       
       {/* Luzes de fundo sutis para manter a imersão */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-box-yellow/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 bg-box-yellow/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Header da página de Catálogo */}
       <section className="pt-40 pb-16 px-6 relative z-10">
@@ -41,7 +41,7 @@ export default function CatalogoPage() {
       <section className="pb-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Linha separadora elegante */}
-          <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent mb-12" />
+          <div className="w-full h-px bg-linear-to-r from-white/10 via-white/5 to-transparent mb-12" />
           
           <CatalogGrid />
         </div>

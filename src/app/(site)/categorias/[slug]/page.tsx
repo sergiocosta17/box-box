@@ -46,7 +46,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <main className="min-h-screen bg-carbon pt-32 pb-24 relative overflow-hidden">
       
       {/* Luzes de Fundo (Aura) */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-box-yellow/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-125 h-125 bg-box-yellow/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Header Premium */}
       <section className="px-6 relative z-10 mb-16">
@@ -85,7 +85,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <section className="px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Linha separadora elegante */}
-          <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent mb-8" />
+          <div className="w-full h-px bg-linear-to-r from-white/10 via-white/5 to-transparent mb-8" />
 
           <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-8">
             A mostrar <span className="text-white">{products.length}</span> {products.length === 1 ? 'arte exclusiva' : 'artes exclusivas'}
@@ -98,7 +98,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-32 border border-white/5 bg-white/[0.02] rounded-3xl backdrop-blur-sm mt-8 text-center px-4">
+            <div className="flex flex-col items-center justify-center py-32 border border-white/5 bg-white/2 rounded-3xl backdrop-blur-sm mt-8 text-center px-4">
               <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6">
                 <ShoppingBag className="w-8 h-8 text-neutral-600" />
               </div>

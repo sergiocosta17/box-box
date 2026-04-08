@@ -26,7 +26,7 @@ export function CatalogFilters({
           className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
             selectedCategory === "all"
               ? "bg-box-yellow text-box-black border-box-yellow shadow-lg shadow-box-yellow/20"
-              : "bg-white/[0.03] text-neutral-400 border-white/10 hover:border-white/30 hover:text-white backdrop-blur-sm"
+              : "bg-white/3-neutral-400 border-white/10 hover:border-white/30 hover:text-white backdrop-blur-sm"
           }`}
         >
           Todos
@@ -38,7 +38,7 @@ export function CatalogFilters({
             className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
               selectedCategory === category.slug
                 ? "bg-box-yellow text-box-black border-box-yellow shadow-lg shadow-box-yellow/20"
-                : "bg-white/[0.03] text-neutral-400 border-white/10 hover:border-white/30 hover:text-white backdrop-blur-sm"
+                : "bg-white/3 text-neutral-400 border-white/10 hover:border-white/30 hover:text-white backdrop-blur-sm"
             }`}
           >
             {category.name}
@@ -47,7 +47,7 @@ export function CatalogFilters({
       </div>
 
       {/* Ordenação (Select Customizado Minimalista) */}
-      <div className="flex items-center gap-3 bg-white/[0.03] border border-white/10 rounded-full px-5 py-2 backdrop-blur-sm">
+      <div className="flex items-center gap-3 bg-white/3 border border-white/10 rounded-full px-5 py-2 backdrop-blur-sm">
         <SlidersHorizontal className="w-4 h-4 text-box-yellow" />
         <label htmlFor="sort" className="sr-only">
           Ordenar:

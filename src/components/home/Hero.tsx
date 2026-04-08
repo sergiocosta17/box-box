@@ -29,7 +29,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9, x: 100 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 2.5, ease: "easeOut" }}
-          className="absolute top-[-15%] right-[-10%] w-[1200px] h-[1200px] rounded-full"
+          className="absolute top-[-15%] right-[-10%] w-300 h-300 rounded-full"
           style={{
             background: "radial-gradient(circle, rgba(255,205,0,0.18) 0%, transparent 70%)",
             filter: "blur(90px)",
@@ -41,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2.5, delay: 0.8 }}
-          className="absolute bottom-[-25%] left-[-15%] w-[1000px] h-[1000px] rounded-full"
+          className="absolute bottom-[-25%] left-[-15%] w-250 h-250 rounded-full"
           style={{
             background: "radial-gradient(circle, rgba(0,151,57,0.15) 0%, transparent 70%)",
             filter: "blur(90px)",
@@ -112,7 +112,7 @@ export function Hero() {
               {/* Botão Secundário: Deep Glassmorphism (Clarear a borda) */}
               <Link
                 href="/categorias/senna-collection"
-                className="group relative flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 bg-white/[0.03] border border-neutral-700 rounded-full backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.08] hover:border-white/50"
+                className="group relative flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 bg-white/3 border border-neutral-700 rounded-full backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-white/8 hover:border-white/50"
               >
                 <Play className="w-4 h-4 text-box-yellow group-hover:scale-110 transition-transform duration-300" fill="currentColor" />
                 <span className="text-xs font-bold text-neutral-100 uppercase tracking-widest group-hover:text-white transition-colors">

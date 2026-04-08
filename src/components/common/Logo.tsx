@@ -41,35 +41,35 @@ export function Logo({ size = "md", className = "" }: LogoProps) {
       
       {/* ===== EMBLEMA QUADRICULADO PREMIUM (RACING FLAG) ===== */}
       <div 
-        className={`relative shrink-0 ${s.box} rounded-sm p-[1px] bg-white/10 shadow-[0_0_20px_rgba(255,205,0,0.15)] group-hover:shadow-[0_0_30px_rgba(255,205,0,0.3)] transition-all duration-500 overflow-hidden transform group-hover:-rotate-3 group-hover:scale-105`}
+        className={`relative shrink-0 ${s.box} rounded-sm p-px bg-white/10 shadow-[0_0_20px_rgba(255,205,0,0.15)] group-hover:shadow-[0_0_30px_rgba(255,205,0,0.3)] transition-all duration-500 overflow-hidden transform group-hover:-rotate-3 group-hover:scale-105`}
       >
         {/* Grid 3x3 - Bandeira Quadriculada */}
-        <div className="w-full h-full grid grid-cols-3 grid-rows-3 gap-[1px] bg-black/50">
+        <div className="w-full h-full grid grid-cols-3 grid-rows-3 gap-px bg-black/50">
           
           {/* Linha 1 */}
           <div className={yellowSquare}>
             {/* Efeito de Reflexo de Luz no Hover */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
           </div>
           <div className={blackSquare} />
           <div className={yellowSquare}>
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-75" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-75" />
           </div>
 
           {/* Linha 2 */}
           <div className={blackSquare} />
           <div className={yellowSquare}>
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-150" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-150" />
           </div>
           <div className={blackSquare} />
 
           {/* Linha 3 */}
           <div className={yellowSquare}>
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-200" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-200" />
           </div>
           <div className={blackSquare} />
           <div className={yellowSquare}>
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-300" />
+            <div className="absolute inset-0 bg-linear-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out delay-300" />
           </div>
 
         </div>

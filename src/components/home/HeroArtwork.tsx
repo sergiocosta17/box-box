@@ -13,7 +13,7 @@ export function HeroArtwork() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute top-0 right-10 w-64 h-64 md:w-[500px] md:h-[500px] rounded-full"
+          className="absolute top-0 right-10 w-64 h-64 md:w-125 md:h-125 rounded-full"
           style={{
             background: "radial-gradient(circle, rgba(255,205,0,0.12) 0%, transparent 70%)",
             filter: "blur(50px)",
@@ -47,7 +47,7 @@ export function HeroArtwork() {
           <div className="bg-[#050505] p-3 sm:p-5 border border-neutral-900 shadow-inner">
             
             {/* A ARTE */}
-            <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-950 border border-white/5">
+            <div className="relative aspect-3/4 w-full overflow-hidden bg-neutral-950 border border-white/5">
               
               {/* ONDE VOCÊ VAI COLOCAR SUA FOTO REAL - Já configurado para 4K */}
               {/* <Image 
@@ -62,7 +62,7 @@ export function HeroArtwork() {
               */}
 
               {/* Arte de Placeholder atual (enquanto não tem foto) */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-box-yellow/20 via-transparent to-[#009739]/20 mix-blend-overlay z-10" />
+              <div className="absolute inset-0 bg-linear-to-tr from-box-yellow/20 via-transparent to-box-green/20 mix-blend-overlay z-10" />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-20">
                 <span className="text-box-yellow font-black text-7xl opacity-20 italic">S</span>
                 <span className="text-white text-[10px] tracking-[0.4em] uppercase mt-4 opacity-40 font-bold">Senna Collection</span>

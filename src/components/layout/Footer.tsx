@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="relative bg-[#050505] overflow-hidden pt-20">
       {/* Linha de borda superior gradiente */}
       <div 
-        className="absolute top-0 left-0 right-0 h-[1px] opacity-30"
+        className="absolute top-0 left-0 right-0 h-px opacity-30"
         style={{ background: "linear-gradient(90deg, transparent, #FFCD00, #009739, #00205B, transparent)" }}
       />
 

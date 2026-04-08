@@ -40,7 +40,7 @@ export function Header() {
       }`}
     >
       <div 
-        className="absolute top-0 left-0 right-0 h-[2px] opacity-100"
+        className="absolute top-0 left-0 right-0 h-0.5 opacity-100"
         style={{ background: "linear-gradient(90deg, #FFCD00 0%, #009739 50%, #00205B 100%)" }}
       />
 
@@ -58,7 +58,7 @@ export function Header() {
                 className="text-xs font-bold uppercase tracking-widest text-neutral-100 hover:text-box-yellow transition-colors relative group py-2"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-box-yellow transition-all duration-500 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-box-yellow transition-all duration-500 group-hover:w-full" />
               </Link>
             ))}
           </div>
@@ -69,7 +69,7 @@ export function Header() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#009739] hover:text-box-yellow transition-colors"
+              className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-box-green hover:text-box-yellow transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               <span>VIP Atendimento</span>

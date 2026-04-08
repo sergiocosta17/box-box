@@ -43,7 +43,7 @@ export default function HomePage() {
                 <Link
                   key={category.id}
                   href={`/categorias/${category.slug}`}
-                  className={`group relative aspect-[4/5] rounded-2xl overflow-hidden bg-white/[0.02] border backdrop-blur-sm transition-all duration-500 ${gradients[index % gradients.length]} lg:first:col-span-2 lg:first:aspect-auto`}
+                  className={`group relative aspect-4/5 rounded-2xl overflow-hidden bg-white/2er backdrop-blur-sm transition-all duration-500 ${gradients[index % gradients.length]} lg:first:col-span-2 lg:first:aspect-auto`}
                 >
                   {/* Ícone de fundo (Marca d'água) */}
                   <div className="absolute -bottom-10 -right-10 text-white/5 group-hover:text-white/10 transition-colors duration-500 group-hover:scale-110">
@@ -75,7 +75,7 @@ export default function HomePage() {
       {/* SEÇÃO: PRODUTOS EM DESTAQUE */}
       <section className="py-24 px-6 relative">
         {/* Luz de fundo sutil */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
         
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -127,7 +127,7 @@ export default function HomePage() {
             ].map((feature, index) => (
               <div 
                 key={index} 
-                className="group relative bg-white/[0.02] border border-white/5 rounded-3xl p-10 hover:bg-white/[0.04] transition-colors duration-500"
+                className="group relative bg-white/2rder-white/5 rounded-3xl p-10 hover:bg-white/4 transition-colors duration-500"
               >
                 <div className="w-16 h-16 rounded-2xl bg-box-yellow/10 border border-box-yellow/20 flex items-center justify-center text-box-yellow mb-8 group-hover:scale-110 group-hover:bg-box-yellow group-hover:text-box-black transition-all duration-500">
                   {feature.icon}
@@ -143,7 +143,7 @@ export default function HomePage() {
       {/* SEÇÃO: CALL TO ACTION */}
       <section className="py-32 px-6 relative overflow-hidden flex items-center justify-center">
         {/* Efeito de luz do CTA */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#009739]/5" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent to-box-green/5" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 bg-box-yellow/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-3xl mx-auto text-center relative z-10 border border-white/10 bg-black/40 backdrop-blur-xl p-12 md:p-20 rounded-[3rem]">

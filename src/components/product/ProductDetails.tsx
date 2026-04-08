@@ -57,7 +57,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
       </div>
 
       {/* Bloco de Preço (Glassmorphism) */}
-      <div className="mt-8 p-6 bg-white/[0.02] rounded-2xl border border-white/5 backdrop-blur-sm relative overflow-hidden group">
+      <div className="mt-8 p-6 bg-white/2 rounded-2xl border border-white/5 backdrop-blur-sm relative overflow-hidden group">
         <div className="absolute inset-0 bg-gradient-to-r from-box-yellow/0 via-box-yellow/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         
         <div className="relative z-10">
@@ -159,7 +159,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           { icon: <Package className="w-5 h-5" />, title: "Embalagem", text: "Proteção Reforçada" },
         ].map((item, i) => (
           <div key={i} className="flex items-start gap-4 text-neutral-400 group cursor-default">
-            <div className="p-2 rounded-lg bg-white/[0.03] border border-white/5 group-hover:bg-box-yellow/10 group-hover:text-box-yellow transition-colors">
+            <div className="p-2 rounded-lg bg-white/3 border border-white/5 group-hover:bg-box-yellow/10 group-hover:text-box-yellow transition-colors">
               {item.icon}
             </div>
             <div>

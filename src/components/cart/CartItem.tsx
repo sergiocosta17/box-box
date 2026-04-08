@@ -15,7 +15,7 @@ export function CartItem({ item }: CartItemProps) {
   const { product, quantity, size } = item;
 
   return (
-    <div className="flex gap-4 p-4 bg-white/[0.02] border border-white/5 rounded-2xl group transition-colors hover:bg-white/[0.04]">
+    <div className="flex gap-4 p-4 bg-white/2rder-white/5 rounded-2xl group transition-colors hover:bg-white/4">
       {/* Imagem */}
       <div className="relative w-20 h-24 rounded-lg overflow-hidden shrink-0 border border-white/10 bg-[#0a0a0a]">
         <Image
@@ -42,7 +42,7 @@ export function CartItem({ item }: CartItemProps) {
         {/* Botão Remover */}
         <button
           onClick={() => removeItem(product.id, size)}
-          className="p-1.5 text-neutral-500 hover:text-[#E10600] bg-white/0 hover:bg-[#E10600]/10 rounded-md transition-all"
+          className="p-1.5 text-neutral-500 hover:text-box-red bg-white/0 hover:bg-box-red/10 rounded-md transition-all"
           aria-label="Remover item"
         >
           <Trash2 className="w-4 h-4" />

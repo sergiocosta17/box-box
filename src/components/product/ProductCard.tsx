@@ -16,7 +16,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/produto/${product.slug}`} className="group block h-full">
-      <div className="relative h-full flex flex-col bg-white/[0.02] rounded-2xl overflow-hidden border border-white/5 backdrop-blur-sm transition-all duration-500 hover:border-box-yellow/30 hover:bg-white/[0.04] hover:-translate-y-1 hover:shadow-2xl hover:shadow-box-yellow/10">
+      <div className="relative h-full flex flex-col bg-white/2 rounded-2xl overflow-hidden border border-white/5 backdrop-blur-sm transition-all duration-500 hover:border-box-yellow/30 hover:bg-white/[0.04] hover:-translate-y-1 hover:shadow-2xl hover:shadow-box-yellow/10">
         
         {/* Container da Imagem */}
         <div className="relative aspect-[4/5] bg-[#0a0a0a] overflow-hidden">

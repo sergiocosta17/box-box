@@ -10,7 +10,7 @@ export default function SobrePage() {
   return (
     <main className="min-h-screen bg-carbon overflow-hidden relative">
       {/* Luzes de Fundo */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-box-yellow/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-125 bg-box-yellow/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Header */}
       <section className="pt-40 pb-16 px-6 relative z-10">
@@ -40,7 +40,7 @@ export default function SobrePage() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Missão */}
-          <div className="p-10 bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-sm hover:bg-white/[0.04] transition-colors md:col-span-2">
+          <div className="p-10 bg-white/2rder-white/5 rounded-3xl backdrop-blur-sm hover:bg-white/4 transition-colors md:col-span-2">
             <Flag className="w-8 h-8 text-box-yellow mb-6" />
             <h2 className="text-2xl font-black text-white mb-4 uppercase tracking-wide">
               A Nossa Missão
@@ -51,7 +51,7 @@ export default function SobrePage() {
           </div>
 
           {/* Qualidade */}
-          <div className="p-10 bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-sm hover:bg-white/[0.04] transition-colors">
+          <div className="p-10 bg-white/2rder-white/5 rounded-3xl backdrop-blur-sm hover:bg-white/4 transition-colors">
             <Award className="w-8 h-8 text-box-yellow mb-6" />
             <h2 className="text-xl font-black text-white mb-4 uppercase tracking-wide">
               Qualidade Fine Art
@@ -62,7 +62,7 @@ export default function SobrePage() {
           </div>
 
           {/* O Nome */}
-          <div className="p-10 bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-sm hover:bg-white/[0.04] transition-colors">
+          <div className="p-10 bg-white/2rder-white/5 rounded-3xl backdrop-blur-sm hover:bg-white/4 transition-colors">
             <Radio className="w-8 h-8 text-box-yellow mb-6" />
             <h2 className="text-xl font-black text-white mb-4 uppercase tracking-wide">
               Porquê "Box Box"?
@@ -73,7 +73,7 @@ export default function SobrePage() {
           </div>
 
           {/* Contacto */}
-          <div className="p-10 bg-gradient-to-br from-box-yellow/10 to-transparent border border-box-yellow/20 rounded-3xl md:col-span-2 text-center flex flex-col items-center justify-center mt-6">
+          <div className="p-10 bg-linear-to-br from-box-yellow/10 to-transparent border border-box-yellow/20 rounded-3xl md:col-span-2 text-center flex flex-col items-center justify-center mt-6">
             <Mail className="w-8 h-8 text-box-yellow mb-4" />
             <h3 className="text-2xl font-black text-white mb-3">
               Pronto para a sua próxima paragem nas boxes?

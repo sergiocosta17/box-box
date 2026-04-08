@@ -69,7 +69,7 @@ export function CatalogGrid() {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center py-32 border border-white/5 bg-white/[0.02] rounded-3xl backdrop-blur-sm">
+        <div className="flex flex-col items-center justify-center py-32 border border-white/5 bg-white/2 rounded-3xl backdrop-blur-sm">
           <span className="text-6xl font-black italic text-white/10 mb-4">S</span>
           <p className="text-neutral-400 text-lg">
             Nenhuma arte encontrada para esta seleção no grid.

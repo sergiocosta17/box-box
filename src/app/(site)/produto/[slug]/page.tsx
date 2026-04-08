@@ -42,8 +42,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     <main className="min-h-screen bg-carbon pt-32 pb-24 px-6 relative overflow-hidden">
       
       {/* Luzes de Fundo (Aura) */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-box-yellow/5 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-box-blue/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-150 h-150 bg-box-yellow/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-[20%] left-[-10%] w-125 h-125 bg-box-blue/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Breadcrumb Premium */}

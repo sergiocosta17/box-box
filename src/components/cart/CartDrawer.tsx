@@ -51,7 +51,7 @@ export function CartDrawer() {
 
         {/* Barra de Progresso de Frete Grátis */}
         {items.length > 0 && freeShippingRemaining > 0 && (
-          <div className="px-6 py-5 bg-white/[0.02] border-b border-white/5">
+          <div className="px-6 py-5 bg-white/2er-b border-white/5">
             <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest mb-3">
               <span className="text-neutral-400">Frete Nacional</span>
               <span className="text-box-yellow">
@@ -68,8 +68,8 @@ export function CartDrawer() {
         )}
 
         {items.length > 0 && freeShippingRemaining <= 0 && (
-          <div className="px-6 py-4 bg-[#009739]/10 border-b border-[#009739]/20">
-            <div className="flex items-center gap-3 text-[#009739]">
+          <div className="px-6 py-4 bg-box-green/10 border-b border-box-green/20">
+            <div className="flex items-center gap-3 text-box-green">
               <CheckCircle2 className="w-5 h-5" />
               <span className="text-xs font-bold uppercase tracking-widest">Frete Grátis Desbloqueado!</span>
             </div>
@@ -84,7 +84,7 @@ export function CartDrawer() {
                 <ShoppingBag className="w-10 h-10 text-neutral-600" />
               </div>
               <h3 className="text-xl font-black text-white mb-2 uppercase tracking-wide">Carrinho Vazio</h3>
-              <p className="text-neutral-500 text-sm mb-8 font-light max-w-[250px]">
+              <p className="text-neutral-500 text-sm mb-8 font-light max-w-62.5">
                 A sua parede ainda está em branco. Descubra a sua próxima obra de arte no nosso catálogo.
               </p>
               <button
@@ -118,7 +118,7 @@ export function CartDrawer() {
               </div>
               <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest">
                 <span className="text-neutral-500">Frete</span>
-                <span className={freeShippingRemaining <= 0 ? "text-[#009739]" : "text-white"}>
+                <span className={freeShippingRemaining <= 0 ? "text-box-green" : "text-white"}>
                   {freeShippingRemaining <= 0 ? "Grátis" : "A Calcular"}
                 </span>
               </div>
@@ -144,7 +144,7 @@ export function CartDrawer() {
 
               <button
                 onClick={clearCart}
-                className="w-full py-2 text-neutral-500 hover:text-[#E10600] text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2"
+                className="w-full py-2 text-neutral-500 hover:text-box-red text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2"
               >
                 <Trash2 className="w-4 h-4" />
                 Esvaziar Carrinho
