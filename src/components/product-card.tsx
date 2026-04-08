@@ -15,27 +15,34 @@ export function ProductCard({ product }: ProductCardProps) {
   const discount = calculateDiscount(product.price, product.originalPrice);
 
   return (
-    <Link href={`/produto/${product.slug}`} className="group">
-      <div className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
-        {/* Imagem */}
-        <div className="relative aspect-square bg-zinc-800 overflow-hidden">
-          {/* Badges */}
-          {discount && (
-            <div className="absolute top-3 left-3 z-10 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-              -{discount}%
-            </div>
-          )}
-          {product.featured && (
-            <div className="absolute top-3 right-3 z-10 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full">
-              ⭐ Destaque
-            </div>
-          )}
+    <Link href={`/produto/${product.slug}`} className="group block h-full">
+      <div className="relative h-full flex flex-col bg-white/[0.02] rounded-2xl overflow-hidden border border-white/5 backdrop-blur-sm transition-all duration-500 hover:border-box-yellow/30 hover:bg-white/[0.04] hover:-translate-y-1 hover:shadow-2xl hover:shadow-box-yellow/10">
+        
+        {/* Container da Imagem */}
+        <div className="relative aspect-[4/5] bg-[#0a0a0a] overflow-hidden">
+          {/* Efeito de brilho interno no hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-box-black via-transparent to-transparent opacity-80 z-10" />
 
+          {/* Badges Premium */}
+          <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
+            {discount && (
+              <span className="bg-[#E10600] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-sm shadow-lg">
+                -{discount}% OFF
+              </span>
+            )}
+            {product.featured && (
+              <span className="bg-box-yellow text-box-black text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-sm shadow-lg">
+                Destaque
+              </span>
+            )}
+          </div>
+
+          {/* Renderização da Imagem */}
           {imageError ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-zinc-800">
-              <div className="text-center p-4">
-                <div className="text-4xl mb-2">🏎️</div>
-                <span className="text-zinc-500 text-sm">{product.name}</span>
+            <div className="absolute inset-0 flex items-center justify-center bg-neutral-900 z-0">
+              <div className="flex flex-col items-center opacity-30">
+                <span className="text-4xl italic font-black text-white">S</span>
+                <span className="text-[10px] uppercase tracking-widest mt-2">Sem Imagem</span>
               </div>
             </div>
           ) : (
@@ -43,32 +50,40 @@ export function ProductCard({ product }: ProductCardProps) {
               src={product.images[0]}
               alt={product.name}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-80 z-0"
               onError={() => setImageError(true)}
             />
           )}
         </div>
 
-        {/* Info */}
-        <div className="p-4">
-          <h3 className="text-white font-semibold group-hover:text-yellow-400 transition-colors line-clamp-2 min-h-12">
-            {product.name}
-          </h3>
+        {/* Informações do Produto */}
+        <div className="p-6 flex flex-col flex-grow justify-between relative z-20 -mt-8">
+          <div>
+            {/* Tags de Tamanho */}
+            <div className="flex flex-wrap items-center gap-1.5 mb-3">
+              {product.sizes.slice(0, 3).map((size) => (
+                <span key={size} className="text-[9px] font-bold uppercase tracking-wider text-neutral-400 bg-white/5 border border-white/10 px-2 py-1 rounded-sm">
+                  {size}
+                </span>
+              ))}
+              {product.sizes.length > 3 && (
+                <span className="text-[9px] font-bold text-neutral-500">+{product.sizes.length - 3}</span>
+              )}
+            </div>
 
-          <div className="flex items-center gap-1 mt-2">
-            {product.sizes.slice(0, 3).map((size) => (
-              <span key={size} className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded">
-                {size}
-              </span>
-            ))}
+            {/* Nome do Produto */}
+            <h3 className="text-lg font-bold text-white group-hover:text-box-yellow transition-colors line-clamp-2 leading-tight">
+              {product.name}
+            </h3>
           </div>
 
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-xl font-bold text-white">
+          {/* Preço */}
+          <div className="mt-6 flex items-baseline gap-3">
+            <span className="text-2xl font-black text-white group-hover:text-box-yellow transition-colors">
               {formatPriceWithCurrency(product.price)}
             </span>
             {product.originalPrice && (
-              <span className="text-sm text-zinc-500 line-through">
+              <span className="text-xs font-medium text-neutral-500 line-through decoration-neutral-600">
                 {formatPriceWithCurrency(product.originalPrice)}
               </span>
             )}

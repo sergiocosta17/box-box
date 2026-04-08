@@ -56,20 +56,23 @@ export function CatalogGrid() {
         onSortChange={setSortBy}
       />
 
-      <p className="text-zinc-400 mb-6">
-        {filteredAndSortedProducts.length} produto(s) encontrado(s)
-      </p>
+      <div className="mb-8 flex items-center">
+        <span className="text-xs font-bold uppercase tracking-widest text-neutral-500">
+          Mostrando <span className="text-white">{filteredAndSortedProducts.length}</span> artes exclusivas
+        </span>
+      </div>
 
       {filteredAndSortedProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {filteredAndSortedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-12">
-          <p className="text-zinc-400">
-            Nenhum produto encontrado nesta categoria.
+        <div className="flex flex-col items-center justify-center py-32 border border-white/5 bg-white/[0.02] rounded-3xl backdrop-blur-sm">
+          <span className="text-6xl font-black italic text-white/10 mb-4">S</span>
+          <p className="text-neutral-400 text-lg">
+            Nenhuma arte encontrada para esta seleção no grid.
           </p>
         </div>
       )}

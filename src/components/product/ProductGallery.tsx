@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { Product } from "@/types/product";
 import { calculateDiscount } from "@/lib/utils";
 
@@ -15,57 +16,71 @@ export function ProductGallery({ product }: ProductGalleryProps) {
   const discount = calculateDiscount(product.price, product.originalPrice);
 
   return (
-    <div className="space-y-4">
-      {/* Imagem Principal */}
-      <div className="relative aspect-square bg-zinc-900 rounded-2xl overflow-hidden">
-        {discount && (
-          <div className="absolute top-4 left-4 z-10 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">
-            -{discount}%
-          </div>
-        )}
-        {product.featured && (
-          <div className="absolute top-4 right-4 z-10 bg-yellow-500 text-black text-sm font-bold px-3 py-1 rounded-full">
-            ⭐ Destaque
-          </div>
-        )}
+    <div className="flex flex-col gap-6">
+      {/* Container Principal de Imagem com Glassmorphism */}
+      <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
         
+        {/* Badges Flutuantes */}
+        <div className="absolute top-6 left-6 z-20 flex flex-col gap-2">
+          {discount && (
+            <span className="bg-[#E10600] text-white text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm shadow-lg">
+              -{discount}% OFF
+            </span>
+          )}
+          {product.featured && (
+            <span className="bg-box-yellow text-box-black text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm shadow-lg">
+              Destaque
+            </span>
+          )}
+        </div>
+
+        {/* Renderização da Imagem Principal com Animação */}
         {imageError ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-zinc-800 to-zinc-900">
-            <div className="text-center p-8">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center">
-                <span className="text-5xl">🏎️</span>
-              </div>
-              <span className="text-zinc-400 text-lg">{product.name}</span>
+          <div className="absolute inset-0 flex items-center justify-center bg-neutral-900 z-0">
+            <div className="flex flex-col items-center opacity-30">
+              <span className="text-6xl italic font-black text-white">S</span>
+              <span className="text-xs uppercase tracking-widest mt-4">Arte Indisponível</span>
             </div>
           </div>
         ) : (
-          <Image
-            src={product.images[selectedImage]}
-            alt={product.name}
-            fill
-            className="object-cover"
-            priority
-            onError={() => setImageError(true)}
-          />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedImage}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="absolute inset-0 z-0"
+            >
+              <Image
+                src={product.images[selectedImage]}
+                alt={`${product.name} - Visão ${selectedImage + 1}`}
+                fill
+                className="object-cover"
+                priority
+                onError={() => setImageError(true)}
+              />
+            </motion.div>
+          </AnimatePresence>
         )}
       </div>
 
-      {/* Thumbnails (se houver mais de uma imagem) */}
+      {/* Miniaturas (Thumbnails) Premium */}
       {product.images.length > 1 && !imageError && (
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-4">
           {product.images.map((image, index) => (
             <button
               key={index}
               onClick={() => setSelectedImage(index)}
-              className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
+              className={`relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden transition-all duration-300 ${
                 selectedImage === index
-                  ? "border-green-500"
-                  : "border-zinc-700 hover:border-zinc-500"
+                  ? "border-2 border-box-yellow shadow-lg shadow-box-yellow/20 scale-105"
+                  : "border border-white/10 opacity-60 hover:opacity-100 hover:border-white/30"
               }`}
             >
               <Image
                 src={image}
-                alt={`${product.name} - ${index + 1}`}
+                alt={`Miniatura ${index + 1}`}
                 fill
                 className="object-cover"
               />

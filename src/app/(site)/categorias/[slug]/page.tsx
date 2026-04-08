@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ProductCard } from "@/components/product-card";
+import { ChevronRight, ShoppingBag } from "lucide-react";
 import {
   categories,
   getProductsByCategory,
@@ -22,11 +23,11 @@ export async function generateMetadata({ params }: CategoryPageProps) {
   const category = getCategoryBySlug(slug);
 
   if (!category) {
-    return { title: "Categoria não encontrada" };
+    return { title: "Categoria não encontrada | Box Box" };
   }
 
   return {
-    title: category.name,
+    title: `${category.name} | Box Box`,
     description: category.description,
   };
 }
@@ -42,61 +43,73 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const products = getProductsByCategory(slug);
 
   return (
-    <main className="min-h-screen bg-black">
-      {/* Header */}
-      <section className="pt-32 pb-12 px-4">
+    <main className="min-h-screen bg-carbon pt-32 pb-24 relative overflow-hidden">
+      
+      {/* Luzes de Fundo (Aura) */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-box-yellow/5 blur-[120px] rounded-full pointer-events-none" />
+
+      {/* Header Premium */}
+      <section className="px-6 relative z-10 mb-16">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-zinc-500 mb-6">
-            <Link href="/" className="hover:text-white transition-colors">
+          <nav className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-neutral-500 mb-8">
+            <Link href="/" className="hover:text-box-yellow transition-colors">
               Início
             </Link>
-            <span>/</span>
+            <ChevronRight className="w-3 h-3 text-neutral-700" />
             <Link
               href="/catalogo"
-              className="hover:text-white transition-colors"
+              className="hover:text-box-yellow transition-colors"
             >
-              Catálogo
+              Acervo
             </Link>
-            <span>/</span>
+            <ChevronRight className="w-3 h-3 text-neutral-700" />
             <span className="text-white">{category.name}</span>
           </nav>
 
           {/* Título */}
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              <span className="bg-linear-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl md:text-6xl font-black text-white mb-4 tracking-tight leading-[1.1]">
+              <span className="italic font-light text-gradient-brasil">
                 {category.name}
               </span>
             </h1>
-            <p className="text-zinc-400 text-lg">{category.description}</p>
+            <p className="text-neutral-400 text-lg font-light leading-relaxed">
+              {category.description}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Produtos */}
-      <section className="pb-20 px-4">
+      {/* Grid de Produtos */}
+      <section className="px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <p className="text-zinc-400 mb-6">
-            {products.length} produto(s) encontrado(s)
+          {/* Linha separadora elegante */}
+          <div className="w-full h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent mb-8" />
+
+          <p className="text-xs font-bold uppercase tracking-widest text-neutral-500 mb-8">
+            A mostrar <span className="text-white">{products.length}</span> {products.length === 1 ? 'arte exclusiva' : 'artes exclusivas'}
           </p>
 
           {products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-zinc-400">
-                Nenhum produto encontrado nesta categoria.
+            <div className="flex flex-col items-center justify-center py-32 border border-white/5 bg-white/[0.02] rounded-3xl backdrop-blur-sm mt-8 text-center px-4">
+              <div className="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6">
+                <ShoppingBag className="w-8 h-8 text-neutral-600" />
+              </div>
+              <p className="text-neutral-400 text-lg mb-6">
+                O grid de partida desta categoria ainda está a ser preparado.
               </p>
               <Link
                 href="/catalogo"
-                className="inline-block mt-4 text-green-400 hover:text-green-300"
+                className="btn-primary"
               >
-                Ver todos os produtos
+                Voltar ao Acervo Completo
               </Link>
             </div>
           )}

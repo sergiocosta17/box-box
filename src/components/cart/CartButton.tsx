@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/contexts/CartContext";
+import { ShoppingBag } from "lucide-react";
 
 export function CartButton() {
   const { totalItems, openCart } = useCart();
@@ -8,24 +9,13 @@ export function CartButton() {
   return (
     <button
       onClick={openCart}
-      className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-zinc-900/50 border border-zinc-800 text-zinc-400 hover:text-white hover:border-yellow-500/30 transition-all group"
+      className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.02] border border-white/5 text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
       aria-label="Abrir carrinho"
     >
-      <svg
-        className="w-5 h-5 group-hover:scale-110 transition-transform"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-        />
-      </svg>
+      <ShoppingBag className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+      
       {totalItems > 0 && (
-        <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-linear-to-r from-yellow-500 to-yellow-400 text-black text-xs font-bold rounded-full flex items-center justify-center shadow-lg shadow-yellow-500/50">
+        <span className="absolute -top-1 -right-1 w-4 h-4 bg-box-yellow text-box-black text-[9px] font-black rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(255,205,0,0.4)] animate-fade-in">
           {totalItems > 9 ? "9+" : totalItems}
         </span>
       )}
