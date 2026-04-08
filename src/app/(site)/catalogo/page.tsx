@@ -3,7 +3,7 @@ import { CatalogGrid } from "@/components/catalog/CatalogGrid";
 export const metadata = {
   title: "Catálogo",
   description:
-    "Explore nossa coleção exclusiva de quadros de F1 e Ayrton Senna",
+    "Explore nossa coleção exclusiva de quadros de F1 e automobilismo",
 };
 
 export default function CatalogoPage() {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/providers/Providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,28 +10,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "BOX BOX | Racing Art Gallery",
-    template: "%s | BOX BOX",
+    default: "Box Box | Quadros de F1 e Automobilismo",
+    template: "%s | Box Box",
   },
   description:
-    "Quadros exclusivos de F1 e automobilismo. Arte que acelera seu coração. Homenagens a Senna, pilotos lendários e momentos históricos do automobilismo.",
-  keywords: [
-    "quadros F1",
-    "arte automobilismo",
-    "Ayrton Senna",
-    "decoração racing",
-    "quadros carros",
-    "F1 art",
-    "presente para fã de F1",
-  ],
-  authors: [{ name: "BOX BOX" }],
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    siteName: "BOX BOX",
-    title: "BOX BOX | Racing Art Gallery",
-    description: "Quadros exclusivos de F1 e automobilismo.",
-  },
+    "Quadros exclusivos de Fórmula 1, Ayrton Senna e automobilismo. Arte para apaixonados por velocidade.",
+  keywords: ["F1", "Fórmula 1", "Senna", "quadros", "arte", "automobilismo"],
 };
 
 export default function RootLayout({
@@ -39,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+    <html lang="pt-BR">
+      <body className={`${inter.variable} antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

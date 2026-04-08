@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { products } from "@/data/products";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "@/components/product-card";
 import { CatalogFilters } from "./CatalogFilters";
 
 export function CatalogGrid() {
@@ -14,12 +14,11 @@ export function CatalogGrid() {
 
     // Filtrar por categoria
     if (selectedCategory !== "all") {
-      // Mapear slug para category
       const categoryMap: Record<string, string> = {
         "senna-collection": "senna",
         "f1-legends": "f1-legends",
-        "classic": "classic",
-        "modern": "modern",
+        classic: "classic",
+        modern: "modern",
       };
       const category = categoryMap[selectedCategory] || selectedCategory;
       filtered = filtered.filter((p) => p.category === category);
@@ -57,12 +56,10 @@ export function CatalogGrid() {
         onSortChange={setSortBy}
       />
 
-      {/* Contador de resultados */}
       <p className="text-zinc-400 mb-6">
         {filteredAndSortedProducts.length} produto(s) encontrado(s)
       </p>
 
-      {/* Grid de produtos */}
       {filteredAndSortedProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredAndSortedProducts.map((product) => (
@@ -71,22 +68,9 @@ export function CatalogGrid() {
         </div>
       ) : (
         <div className="text-center py-12">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-zinc-800 flex items-center justify-center">
-            <svg
-              className="w-8 h-8 text-zinc-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <p className="text-zinc-400">Nenhum produto encontrado nesta categoria.</p>
+          <p className="text-zinc-400">
+            Nenhum produto encontrado nesta categoria.
+          </p>
         </div>
       )}
     </div>

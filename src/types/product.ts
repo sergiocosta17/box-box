@@ -4,7 +4,7 @@ export interface Product {
   slug: string;
   description: string;
   price: number;
-  originalPrice?: number; // preço original (para mostrar desconto)
+  originalPrice?: number;
   category: "senna" | "f1-legends" | "classic" | "modern";
   images: string[];
   sizes: string[];

@@ -13,7 +13,7 @@ export const categories: Category[] = [
     name: "F1 Legends",
     slug: "f1-legends",
     description: "Os maiores nomes da história da Fórmula 1",
-    image: "/images/categories/f1-legends.jpg",
+    image: "/images/categories/legends.jpg",
   },
   {
     id: "3",
@@ -143,15 +143,25 @@ export const products: Product[] = [
   },
 ];
 
-// Funções auxiliares
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
 
-export function getProductsByCategory(category: string): Product[] {
+export function getProductsByCategory(categorySlug: string): Product[] {
+  const categoryMap: Record<string, string> = {
+    "senna-collection": "senna",
+    "f1-legends": "f1-legends",
+    classic: "classic",
+    modern: "modern",
+  };
+  const category = categoryMap[categorySlug] || categorySlug;
   return products.filter((p) => p.category === category);
 }
 
 export function getFeaturedProducts(): Product[] {
   return products.filter((p) => p.featured);
+}
+
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return categories.find((c) => c.slug === slug);
 }

@@ -1,5 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import { WhatsAppFloatingButton } from "@/components/common/WhatsAppFloatingButton";
 
 export default function SiteLayout({
   children,
@@ -9,8 +11,10 @@ export default function SiteLayout({
   return (
     <>
       <Header />
-      <main>{children}</main>
+      {children}
       <Footer />
+      <CartDrawer />
+      <WhatsAppFloatingButton />
     </>
   );
 }
