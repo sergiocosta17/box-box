@@ -33,13 +33,12 @@ export function Header() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 border-b ${
         scrolled 
-          ? "bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] py-2" 
-          : "bg-black/80 backdrop-blur-xl border-b border-white/5 py-4"
+          ? "bg-[#0A0A0A]/95 backdrop-blur-3xl border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.8)] py-1.5" 
+          : "bg-neutral-900/70 backdrop-blur-xl border-white/5 py-3"
       }`}
     >
-      {/* Linha fina premium no topo com as cores do Brasil/Senna */}
       <div 
         className="absolute top-0 left-0 right-0 h-[2px] opacity-100"
         style={{ background: "linear-gradient(90deg, #FFCD00 0%, #009739 50%, #00205B 100%)" }}
@@ -48,16 +47,15 @@ export function Header() {
       <nav className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           
-          {/* LOGO IMPORTADO */}
           <Logo size="md" />
 
-          {/* MENU DESKTOP */}
+          {/* MENU DESKTOP - Clarear os links padrão */}
           <div className="hidden lg:flex items-center gap-10">
             {NAVIGATION_ITEMS.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-white transition-colors relative group py-2"
+                className="text-xs font-bold uppercase tracking-widest text-neutral-100 hover:text-box-yellow transition-colors relative group py-2"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-box-yellow transition-all duration-500 group-hover:w-full" />
@@ -71,10 +69,10 @@ export function Header() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:text-[#009739] transition-colors"
+              className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#009739] hover:text-box-yellow transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>VIP</span>
+              <span>VIP Atendimento</span>
             </Link>
 
             <CartButton />
@@ -96,7 +94,7 @@ export function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 py-6 px-6 shadow-2xl"
+            className="lg:hidden absolute top-full left-0 right-0 bg-neutral-900/98 backdrop-blur-3xl border-b border-white/10 py-6 px-6 shadow-2xl"
           >
             <div className="flex flex-col gap-6">
               {NAVIGATION_ITEMS.map((item) => (
@@ -104,7 +102,7 @@ export function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-black uppercase tracking-widest text-neutral-300 hover:text-box-yellow"
+                  className="text-lg font-black uppercase tracking-widest text-neutral-100 hover:text-box-yellow"
                 >
                   {item.name}
                 </Link>
