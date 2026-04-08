@@ -17,7 +17,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Container Principal de Imagem com Glassmorphism */}
+      {/* Container Principal de Imagem */}
       <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] bg-[#0a0a0a] rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
         
         {/* Badges Flutuantes */}
@@ -34,7 +34,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
           )}
         </div>
 
-        {/* Renderização da Imagem Principal com Animação */}
+        {/* Imagem Principal 4K */}
         {imageError ? (
           <div className="absolute inset-0 flex items-center justify-center bg-neutral-900 z-0">
             <div className="flex flex-col items-center opacity-30">
@@ -56,8 +56,10 @@ export function ProductGallery({ product }: ProductGalleryProps) {
                 src={product.images[selectedImage]}
                 alt={`${product.name} - Visão ${selectedImage + 1}`}
                 fill
+                quality={100} // <-- QUALIDADE MÁXIMA (Sem compressão WebP agressiva)
+                priority // <-- CARREGA PRIMEIRO PARA NÃO PISCAR
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-                priority
                 onError={() => setImageError(true)}
               />
             </motion.div>
@@ -65,7 +67,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
         )}
       </div>
 
-      {/* Miniaturas (Thumbnails) Premium */}
+      {/* Miniaturas (Thumbnails) HD */}
       {product.images.length > 1 && !imageError && (
         <div className="flex flex-wrap gap-4">
           {product.images.map((image, index) => (
@@ -82,6 +84,8 @@ export function ProductGallery({ product }: ProductGalleryProps) {
                 src={image}
                 alt={`Miniatura ${index + 1}`}
                 fill
+                quality={100} // <-- THUMBNAILS TAMBÉM EM ALTA QUALIDADE
+                sizes="100px"
                 className="object-cover"
               />
             </button>

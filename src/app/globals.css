@@ -20,14 +20,18 @@
   --shadow-glow-green: 0 0 50px rgba(0, 151, 57, 0.2);
 }
 
-/* ===== ESTILOS BASE ===== */
+/* ===== ESTILOS BASE 4K / RETINA ===== */
 * {
-  /* Clarear as bordas globais sutilmente */
+  /* Bordas globais subtilmente clareadas */
   border-color: rgba(255, 255, 255, 0.08);
 }
 
 body {
-  @apply bg-box-black text-box-white antialiased overflow-x-hidden;
+  @apply bg-box-black text-box-white overflow-x-hidden;
+  /* Ativa renderização de texto 4K e Retina Display */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Scrollbar invisível mas funcional (padrão Apple/Premium) */
@@ -53,14 +57,14 @@ body {
   background-image: 
     /* Neblina de luz neutra central */
     radial-gradient(circle at 50% 50%, rgba(30, 30, 30, 0.9) 0%, #060606 70%),
-    /* Textura de asfalto/carbono sutil */
+    /* Textura de asfalto/carbono subtil */
     linear-gradient(45deg, rgba(255,255,255,0.015) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.015) 75%, rgba(255,255,255,0.015)), 
     linear-gradient(45deg, rgba(255,255,255,0.015) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.015) 75%, rgba(255,255,255,0.015));
   background-size: 100% 100%, 20px 20px, 20px 20px;
   background-position: 0 0, 0 0, 10px 10px;
 }
 
-/* Efeito de vidro temperado mais claro (backdrop-blur-xl e bg-black/60) */
+/* Efeito de vidro temperado mais claro */
 .glass-header {
   background: rgba(6, 6, 6, 0.6);
   backdrop-filter: blur(25px);
@@ -75,7 +79,7 @@ body {
   background-clip: text;
 }
 
-/* Gradiente mais visível */
+/* Gradiente mais visível com as cores do Brasil */
 .text-gradient-brasil {
   background: linear-gradient(135deg, #FFCD00 0%, #009739 100%);
   -webkit-background-clip: text;
@@ -93,7 +97,7 @@ body {
   @apply bg-white scale-[1.02] shadow-box-yellow/50;
 }
 
-/* Clarear o botão secundário */
+/* Botão secundário clareado e em efeito vidro */
 .btn-secondary {
   @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase;
   @apply border border-neutral-600 text-neutral-100 bg-white/5 backdrop-blur-sm;

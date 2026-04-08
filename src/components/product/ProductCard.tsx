@@ -1,4 +1,3 @@
-/* src/components/product/ProductCard.tsx */
 "use client";
 
 import { useState } from "react";
@@ -37,7 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
 
-          {/* Renderização da Imagem */}
+          {/* Imagem em Qualidade Máxima (4K Ready) */}
           {imageError ? (
             <div className="absolute inset-0 flex items-center justify-center bg-neutral-900 z-0">
               <div className="flex flex-col items-center opacity-30">
@@ -50,6 +49,8 @@ export function ProductCard({ product }: ProductCardProps) {
               src={product.images[0]}
               alt={product.name}
               fill
+              quality={100} // <-- FORÇA A QUALIDADE MÁXIMA SEM COMPRESSÃO
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // <-- OTIMIZA PARA MONITORES GRANDES
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:opacity-80 z-0"
               onError={() => setImageError(true)}
             />
