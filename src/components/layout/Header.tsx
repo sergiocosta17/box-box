@@ -33,19 +33,22 @@ export function Header() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-40 glass-header transition-all duration-500 ${
-        scrolled ? "py-0" : "py-2"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled 
+          ? "bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] py-2" 
+          : "bg-black/80 backdrop-blur-xl border-b border-white/5 py-4"
       }`}
     >
+      {/* Linha fina premium no topo com as cores do Brasil/Senna */}
       <div 
-        className="absolute top-0 left-0 right-0 h-[2px] opacity-80"
+        className="absolute top-0 left-0 right-0 h-[2px] opacity-100"
         style={{ background: "linear-gradient(90deg, #FFCD00 0%, #009739 50%, #00205B 100%)" }}
       />
 
       <nav className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           
-          {/* LOGO IMPORTADO AQUI */}
+          {/* LOGO IMPORTADO */}
           <Logo size="md" />
 
           {/* MENU DESKTOP */}
@@ -93,7 +96,7 @@ export function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 py-6 px-6 shadow-2xl"
+            className="lg:hidden absolute top-full left-0 right-0 bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 py-6 px-6 shadow-2xl"
           >
             <div className="flex flex-col gap-6">
               {NAVIGATION_ITEMS.map((item) => (
