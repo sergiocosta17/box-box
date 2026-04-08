@@ -1,38 +1,37 @@
+"use client";
+
 import Link from "next/link";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
+  className?: string;
 }
 
-export function Logo({ size = "md" }: LogoProps) {
+export function Logo({ size = "md", className = "" }: LogoProps) {
   const sizes = {
-    sm: { box: "w-8 h-8", text: "text-base", sub: "text-[8px]" },
-    md: { box: "w-10 h-10", text: "text-xl", sub: "text-[10px]" },
-    lg: { box: "w-12 h-12", text: "text-2xl", sub: "text-xs" },
+    sm: { box: "w-8 h-8", text: "text-lg", sub: "text-[8px]", gap: "gap-2.5" },
+    md: { box: "w-10 h-10", text: "text-xl", sub: "text-[9px]", gap: "gap-3" },
+    lg: { box: "w-14 h-14", text: "text-3xl", sub: "text-xs", gap: "gap-4" },
   };
 
   const s = sizes[size];
 
   return (
-    <Link href="/" className="flex items-center gap-3 group">
-      {/* Ícone quadriculado */}
-      <div className={`${s.box} relative rounded-lg overflow-hidden`}>
-        <svg viewBox="0 0 20 20" className="w-full h-full">
-          {/* Quadrados - padrão xadrez preto e amarelo */}
-          <rect x="0" y="0" width="10" height="10" fill="#FACC15" />
-          <rect x="10" y="0" width="10" height="10" fill="#18181B" />
-          <rect x="0" y="10" width="10" height="10" fill="#18181B" />
-          <rect x="10" y="10" width="10" height="10" fill="#FACC15" />
-        </svg>
+    <Link href="/" className={`flex items-center ${s.gap} group w-fit ${className}`}>
+      {/* Símbolo */}
+      <div 
+        className={`relative flex items-center justify-center ${s.box} border border-[#FFCD00]/30 rounded-sm transform group-hover:rotate-45 transition-transform duration-500 bg-black overflow-hidden shrink-0 shadow-lg`}
+      >
+         <div className="absolute w-full h-[1px] bg-[#FFCD00]/50 -rotate-45" />
       </div>
 
       {/* Texto */}
-      <div className="flex flex-col">
-        <span className={`${s.text} font-black tracking-tight leading-none text-white`}>
-          BOX BOX
+      <div className="flex flex-col justify-center">
+        <span className={`${s.text} font-black text-white tracking-widest uppercase leading-none`}>
+          BOX<span className="text-[#FFCD00]">BOX</span>
         </span>
-        <span className={`${s.sub} text-zinc-500 tracking-[0.15em] uppercase font-medium`}>
-          Racing Art Gallery
+        <span className={`${s.sub} text-neutral-500 tracking-[0.3em] uppercase mt-1 leading-none`}>
+          Racing Art
         </span>
       </div>
     </Link>

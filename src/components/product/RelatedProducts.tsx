@@ -1,4 +1,4 @@
-import { ProductCard } from "@/components/product-card";
+import { ProductCard } from "@/components/product/ProductCard"; // <-- CAMINHO ATUALIZADO
 import { getProductsByCategory } from "@/data/products";
 
 interface RelatedProductsProps {

@@ -15,16 +15,8 @@ export function Footer() {
           
           {/* Brand Info */}
           <div className="md:col-span-5 lg:col-span-6">
-            <Link href="/" className="flex items-center gap-3 group mb-6 w-fit">
-              <div className="relative flex items-center justify-center w-8 h-8 border border-box-yellow/30 rounded-sm bg-white/5 overflow-hidden">
-                 <div className="absolute w-full h-[1px] bg-box-yellow/50 -rotate-45" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-black text-white tracking-widest uppercase leading-none">
-                  BOX<span className="text-box-yellow">BOX</span>
-                </span>
-              </div>
-            </Link>
+            {/* LOGO IMPORTADO AQUI COM MARGEM INFERIOR */}
+            <Logo size="md" className="mb-6" />
             
             <p className="text-neutral-500 max-w-sm text-sm leading-relaxed font-light">
               Transformamos a paixão pelo automobilismo em arte de alta performance. Cada quadro eterniza o legado das pistas e a emoção da velocidade.
@@ -38,7 +30,7 @@ export function Footer() {
               {[
                 { href: "/", label: "Início" },
                 { href: "/catalogo", label: "Catálogo Completo" },
-                { href: "/sobre", label: "Nossa História" },
+                { href: "/sobre", label: "A Nossa História" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-neutral-400 hover:text-box-yellow text-sm transition-colors duration-300">

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { products } from "@/data/products";
-import { ProductCard } from "@/components/product-card";
+import { ProductCard } from "@/components/product/ProductCard"; // <-- CAMINHO ATUALIZADO
 import { CatalogFilters } from "./CatalogFilters";
 
 export function CatalogGrid() {

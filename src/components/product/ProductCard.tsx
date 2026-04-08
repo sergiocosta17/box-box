@@ -1,3 +1,4 @@
+/* src/components/product/ProductCard.tsx */
 "use client";
 
 import { useState } from "react";
@@ -20,7 +21,6 @@ export function ProductCard({ product }: ProductCardProps) {
         
         {/* Container da Imagem */}
         <div className="relative aspect-[4/5] bg-[#0a0a0a] overflow-hidden">
-          {/* Efeito de brilho interno no hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-box-black via-transparent to-transparent opacity-80 z-10" />
 
           {/* Badges Premium */}
@@ -59,7 +59,6 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Informações do Produto */}
         <div className="p-6 flex flex-col flex-grow justify-between relative z-20 -mt-8">
           <div>
-            {/* Tags de Tamanho */}
             <div className="flex flex-wrap items-center gap-1.5 mb-3">
               {product.sizes.slice(0, 3).map((size) => (
                 <span key={size} className="text-[9px] font-bold uppercase tracking-wider text-neutral-400 bg-white/5 border border-white/10 px-2 py-1 rounded-sm">
@@ -71,13 +70,11 @@ export function ProductCard({ product }: ProductCardProps) {
               )}
             </div>
 
-            {/* Nome do Produto */}
             <h3 className="text-lg font-bold text-white group-hover:text-box-yellow transition-colors line-clamp-2 leading-tight">
               {product.name}
             </h3>
           </div>
 
-          {/* Preço */}
           <div className="mt-6 flex items-baseline gap-3">
             <span className="text-2xl font-black text-white group-hover:text-box-yellow transition-colors">
               {formatPriceWithCurrency(product.price)}

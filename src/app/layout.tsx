@@ -3,19 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers/Providers";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+// Otimização de fonte do Google
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+// SEO Premium
 export const metadata: Metadata = {
-  title: {
-    default: "Box Box | Quadros de F1 e Automobilismo",
-    template: "%s | Box Box",
-  },
-  description:
-    "Quadros exclusivos de Fórmula 1, Ayrton Senna e automobilismo. Arte para apaixonados por velocidade.",
-  keywords: ["F1", "Fórmula 1", "Senna", "quadros", "arte", "automobilismo"],
+  title: "BOX BOX | Racing Art Gallery",
+  description: "Arte de alta performance e quadros exclusivos para apaixonados por Fórmula 1 e automobilismo.",
 };
 
 export default function RootLayout({
@@ -24,9 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${inter.variable} antialiased`}>
-        <Providers>{children}</Providers>
+    <html lang="pt-BR" className="scroll-smooth">
+      {/* O bg-carbon garante o fundo escuro desde o milissegundo 0 */}
+      <body className={`${inter.variable} font-sans bg-carbon text-white antialiased`}>
+        {/* Providers envolve o CartContext para o site todo */}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

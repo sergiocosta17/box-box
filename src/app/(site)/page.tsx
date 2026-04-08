@@ -1,6 +1,6 @@
 import { Hero } from "@/components/home/Hero";
 import Link from "next/link";
-import { ProductCard } from "@/components/product-card";
+import { ProductCard } from "@/components/product/ProductCard"; // <-- CAMINHO ATUALIZADO
 import { getFeaturedProducts, categories } from "@/data/products";
 import { ArrowRight, Truck, ShieldCheck, Headset, Crown } from "lucide-react";
 
